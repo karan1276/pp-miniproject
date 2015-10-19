@@ -2,7 +2,7 @@
 Student Record System in cpp
 
 ##Functions
-  1. Add Students
+	1. Add Students
 	2. Search Students
 	3. Modify Student Record
 	4. Generate Markskeet
