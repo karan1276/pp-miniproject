@@ -9,3 +9,9 @@ Student Record System in cpp
 	5. Delete Student Record
 	6. Change Password
 	7. Exit
+	
+##Features
+	1. Classes and objects
+	2. Constructor, default const. ,copy const. 
+
+
