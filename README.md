@@ -12,6 +12,8 @@ Student Record System in cpp
 	
 ##Features
 	1. Classes and objects
-	2. Constructor, default const. ,copy const. 
+	2. Constructor, default const. ,copy const.
+	3. Validation of input
+	4. Recursion
 
 
