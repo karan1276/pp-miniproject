@@ -46,7 +46,7 @@ class Human{
 	}
 	//Destructor
 	~Human(){
-		cout<<endl<<"Exiting human object"<<endl;
+		cout<<endl<<"Destroying Human object"<<endl;
 	}
 	
 	//Getters
@@ -84,9 +84,38 @@ class Student: private Human{
 		int ds_marks;
 		int fds_marks;
 		int pp_marks;
+	public:
+		//Default Constructor
+		Student(){
+			co_marks=0;
+			del_marks=0;
+			ds_marks=0;
+			fds_marks=0;
+			pp_marks=0;	
+		}
+		//Custom Constructor
+		Student(int co,int del,int ds,int fds,int pp){
+			co_marks=co;
+			del_marks=del;
+			ds_marks=ds;
+			fds_marks=fds;
+			pp_marks=pp;	
+		}
+		//Copy Constructor
+		Student(Student &s){
+			co_marks=s.co_marks;
+			del_marks=s.del_marks;
+			ds_marks=s.ds_marks;
+			fds_marks=s.fds_marks;
+			pp_marks=s.pp_marks;
+		}
+		//Destructor
+		~Student(){
+			cout<<"Destroying Student object"<<endl;
+		}
 };
 int main(){
 	Student h;
-	
+
 	return 0;
 }
