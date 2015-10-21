@@ -5,6 +5,8 @@
 //
 #include <iostream>
 #include <string.h>
+#include <ctype.h>
+#include <typeinfo>
 using namespace std;
 union tempHuman{
 	int p;
@@ -18,6 +20,7 @@ class Human{
 		char name[20];
 		int year;
 		char address[20];
+		union tempHuman t;
 		
 	public:
 	//Default Constructor
@@ -43,15 +46,27 @@ class Human{
 	}
 	//Destructor
 	~Human(){
-		cout<<"Exiting human object"<<endl;
+		cout<<endl<<"Exiting human object"<<endl;
 	}
 	
 	//Getters
 	void getPrn(){
-		 
+		cin>>prn;
 	}
+	void getName(){
+		gets(name);
+	}
+	void getYear(){
+		cin>>year;
+	}
+	void getAddress(){
+		gets(address);
+	}
+	
+	//printers
 };
 int main(){
 	Human h;
+	h.getPrn();
 	return 0;
 }
