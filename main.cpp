@@ -77,8 +77,16 @@ class Human{
 		puts(address);
 	}
 };
+class Student: private Human{
+	private:
+		int co_marks;
+		int del_marks;
+		int ds_marks;
+		int fds_marks;
+		int pp_marks;
+};
 int main(){
-	Human h;
-	h.getPrn();
+	Student h;
+	
 	return 0;
 }
