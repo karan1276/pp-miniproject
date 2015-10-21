@@ -76,6 +76,13 @@ class Human{
 	void printAddress(){
 		puts(address);
 	}
+	//Reset function
+	void resetHuman(){
+		prn=0;
+		strcpy(name,"anonymous");
+		year=1;
+		strcpy(address,"anonymous");
+	}
 };
 class Student: private Human{
 	private:
@@ -112,6 +119,16 @@ class Student: private Human{
 		//Destructor
 		~Student(){
 			cout<<"Destroying Student object"<<endl;
+		}
+		
+		//Reset Function
+		void resetStudent(){
+			resetHuman();
+			co_marks=0;
+			del_marks=0;
+			ds_marks=0;
+			fds_marks=0;
+			pp_marks=0;	
 		}
 };
 int main(){
