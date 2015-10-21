@@ -64,6 +64,18 @@ class Human{
 	}
 	
 	//printers
+	void printPrn(){
+		cout<<prn;
+	}
+	void printName(){
+		puts(name);
+	}
+	void printYear(){
+		cout<<year;
+	}
+	void printAddress(){
+		puts(address);
+	}
 };
 int main(){
 	Human h;
