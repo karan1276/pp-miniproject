@@ -54,27 +54,46 @@ class Human{
 		cin>>prn;
 	}
 	void getName(){
-		gets(name);
+		cin>>name;
 	}
 	void getYear(){
 		cin>>year;
 	}
 	void getAddress(){
-		gets(address);
+		cin>>address;
 	}
-	
+	void getHuman(){
+		cout<<"Enter Prn:"<<endl;
+		getPrn();
+		cout<<"Enter Name:"<<endl;
+		getName();
+		cout<<"Enter Year:"<<endl;
+		getYear();
+		cout<<"Enter Address:"<<endl;
+		getAddress();
+	}
 	//printers
 	void printPrn(){
 		cout<<prn;
 	}
 	void printName(){
-		puts(name);
+		cout<<name;
 	}
 	void printYear(){
 		cout<<year;
 	}
 	void printAddress(){
-		puts(address);
+		cout<<address;
+	}
+	void printHuman(){
+		cout<<endl<<"Prn:"<<endl;
+		printPrn();
+		cout<<endl<<"Name:"<<endl;
+		printName();
+		cout<<endl<<"Year:"<<endl;
+		printYear();
+		cout<<endl<<"Address:"<<endl;
+		printAddress();
 	}
 	//Reset function
 	void resetHuman(){
@@ -132,7 +151,9 @@ class Student: private Human{
 		}
 };
 int main(){
-	Student h;
+	Human h;
+	h.getHuman();
+	h.printHuman();
 
 	return 0;
 }
