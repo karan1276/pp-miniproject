@@ -86,13 +86,13 @@ class Human{
 		cout<<address;
 	}
 	void printHuman(){
-		cout<<endl<<"Prn:"<<endl;
+		cout<<endl<<"Prn: ";
 		printPrn();
-		cout<<endl<<"Name:"<<endl;
+		cout<<endl<<"Name: ";
 		printName();
-		cout<<endl<<"Year:"<<endl;
+		cout<<endl<<"Year: ";
 		printYear();
-		cout<<endl<<"Address:"<<endl;
+		cout<<endl<<"Address: ";
 		printAddress();
 	}
 	//Reset function
@@ -162,6 +162,30 @@ class Student: private Human{
 			getDs();
 			cout<<"Enter FDS marks"<<endl;
 			getFds();
+		}
+		//printers
+		void printCo(){
+			cout<<co_marks;
+		}
+		void printDel(){
+			cout<<del_marks;
+		}
+		void printDs(){
+			cout<<ds_marks;
+		}
+		void printFds(){
+			cout<<fds_marks;
+		}
+		void printStudent(){
+			printHuman();
+			cout<<endl<<"CO marks: ";
+			printCo();
+			cout<<endl<<"DEL marks: ";
+			printDel();
+			cout<<endl<<"DS marks: ";
+			printDs();
+			cout<<endl<<"FDS marks: ";
+			printFds();
 		}
 		//Reset Function
 		void resetStudent(){
