@@ -139,7 +139,30 @@ class Student: private Human{
 		~Student(){
 			cout<<"Destroying Student object"<<endl;
 		}
-		
+		//Getters
+		void getCo(){
+			cin>>co_marks;
+		}
+		void getDel(){
+			cin>>del_marks;
+		}
+		void getDs(){
+			cin>>ds_marks;
+		}
+		void getFds(){
+			cin>>fds_marks;
+		}
+		void getStudent(){
+			getHuman();
+			cout<<"Enter CO marks"<<endl;
+			getCo();
+			cout<<"Enter DEL marks"<<endl;
+			getDel();
+			cout<<"Enter DS marks"<<endl;
+			getDs();
+			cout<<"Enter FDS marks"<<endl;
+			getFds();
+		}
 		//Reset Function
 		void resetStudent(){
 			resetHuman();
@@ -151,9 +174,9 @@ class Student: private Human{
 		}
 };
 int main(){
-	Human h;
-	h.getHuman();
-	h.printHuman();
+	Student h;
+	h.getStudent();
+	h.printStudent();
 
 	return 0;
 }
