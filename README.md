@@ -17,5 +17,6 @@ Student Record System in cpp
 	4. ~Recursion
 	5. Input handeling
 	6. Friend function
+	7. Register variable
 
 
