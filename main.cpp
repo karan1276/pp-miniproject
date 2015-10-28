@@ -52,15 +52,47 @@ class Human{
 	//Getters
 	void getPrn(){
 		cin>>prn;
+		if(!cin)
+		{
+		    // user didn't input a number
+		    cin.clear(); // reset failbit
+		    cin.ignore();
+		    cout<<"Entered info not valid, try again"<<endl;
+		    getPrn();
+		}
 	}
 	void getName(){
 		cin>>name;
+		if(!cin)
+		{
+		    // user didn't input a number
+		    cin.clear(); // reset failbit
+		    cin.ignore();
+		    cout<<"Entered info not valid, try again"<<endl;
+		    getName();
+		}
 	}
 	void getYear(){
 		cin>>year;
+		if(!cin)
+		{
+		    // user didn't input a number
+		    cin.clear(); // reset failbit
+		    cin.ignore();
+		    cout<<"Entered info not valid, try again"<<endl;
+		    getYear();
+		}
 	}
 	void getAddress(){
 		cin>>address;
+		if(!cin)
+		{
+		    // user didn't input a number
+		    cin.clear(); // reset failbit
+		    cin.ignore();
+		    cout<<"Entered info not valid, try again"<<endl;
+		    getAddress();
+		}
 	}
 	void getHuman(){
 		cout<<"Enter Prn:"<<endl;
@@ -102,6 +134,8 @@ class Human{
 		year=1;
 		strcpy(address,"anonymous");
 	}
+	
+	friend void search(int);
 };
 class Student: private Human{
 	private:
@@ -142,15 +176,47 @@ class Student: private Human{
 		//Getters
 		void getCo(){
 			cin>>co_marks;
+			if(!cin)
+			{
+			    // user didn't input a number
+			    cin.clear(); // reset failbit
+			    cin.ignore();
+			    cout<<"Entered info not valid, try again"<<endl;
+			    getCo();
+			}
 		}
 		void getDel(){
 			cin>>del_marks;
+			if(!cin)
+			{
+			    // user didn't input a number
+			    cin.clear(); // reset failbit
+			    cin.ignore();
+			    cout<<"Entered info not valid, try again"<<endl;
+			    getDel();
+			}
 		}
 		void getDs(){
 			cin>>ds_marks;
+			if(!cin)
+			{
+			    // user didn't input a number
+			    cin.clear(); // reset failbit
+			    cin.ignore();
+			    cout<<"Entered info not valid, try again"<<endl;
+			    getDs();
+			}
 		}
 		void getFds(){
 			cin>>fds_marks;
+			if(!cin)
+			{
+			    // user didn't input a number
+			    cin.clear(); // reset failbit
+			    cin.ignore();
+			    cout<<"Entered info not valid, try again"<<endl;
+			    getFds();
+			}
 		}
 		void getStudent(){
 			getHuman();
@@ -197,10 +263,15 @@ class Student: private Human{
 			pp_marks=0;	
 		}
 };
+
 int main(){
-	Student h;
-	h.getStudent();
-	h.printStudent();
+	Student s[10];
+	register int i;
+	int top;
+	
+	
+	s[0].getStudent();
+	s[0].printStudent();
 
 	return 0;
 }
