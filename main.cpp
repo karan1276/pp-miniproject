@@ -267,11 +267,42 @@ class Student: private Human{
 int main(){
 	Student s[10];
 	register int i;
-	int top;
+	int top=0, option=0, flag=1;
+	do{
+		cout<<"Enter your choise:"<<endl;
+		cout<<"0. Exit"<<endl;
+		cout<<"1. Add Student"<<endl;
+		cout<<"2. Search Student"<<endl;
+		cout<<"3. Generated Marksheet"<<endl;
+		cout<<"4. Delete Student Record"<<endl;
+		cout<<"5. Modify Student Record"<<endl;
+		cin>>option;
+		
+		switch(option){
+			case 0:
+				flag=0;
+			break;
+			case  1:
+				addStudents();	
+			break;
+			case  2:
+				searchStudents();
+			break;
+			case  3:
+				genrateMarksheet();
+			break;
+			case  4:
+				deleteStudent();
+			break;
+			case 5:
+				modifyStudent();
+			break;
+		}
+		
+	}while(flag);
 	
 	
-	s[0].getStudent();
-	s[0].printStudent();
+	
 
 	return 0;
 }
