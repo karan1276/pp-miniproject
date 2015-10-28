@@ -263,7 +263,21 @@ class Student: private Human{
 			pp_marks=0;	
 		}
 };
-
+void addStudents(int *p, int top){
+	(*p)[top].getStudent();
+}
+void searchStudents(){
+		
+}
+void genrateMarksheet(){
+	
+}
+void deleteStudent(){
+	
+}
+void modifyStudent(){
+	
+}
 int main(){
 	Student s[10];
 	register int i;
@@ -283,7 +297,7 @@ int main(){
 				flag=0;
 			break;
 			case  1:
-				addStudents();	
+				addStudents(s,&top);
 			break;
 			case  2:
 				searchStudents();
