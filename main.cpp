@@ -283,7 +283,7 @@ void searchStudents(Student& s,int prn){
 	}
 }
 void genrateMarksheet(Student& s){
-	cout<<s.name<<setw(15)<<s.co_marks<<setw(6)<<s.del_marks<<setw(6)<<s.ds_marks<<setw(6)<<s.fds_marks<<setw(6)<<endl;
+	cout<<setw(15)<<left<<s.name<<setw(6)<<left<<s.prn<<setw(6)<<left<<s.co_marks<<setw(6)<<left<<s.del_marks<<setw(6)<<left<<s.ds_marks<<setw(6)<<left<<s.fds_marks<<endl;
 }
 int positionStudents(Student& s,int prn){
 	if(s.prn==prn){
@@ -294,9 +294,9 @@ int positionStudents(Student& s,int prn){
 void deleteStudent(Student& s1,Student& s2){
 	//human
 	s1.prn=s2.prn;
-	strcpy(s1.name,s1.name);
+	strcpy(s1.name,s2.name);
 	s1.year=s2.year;
-	strcpy(s1.address,s1.address);
+	strcpy(s1.address,s2.address);
 	//student
 	s1.co_marks=s2.co_marks;
 	s1.del_marks=s2.del_marks;
@@ -398,7 +398,7 @@ int main(){
 			break;
 			case  3:
 				cout<<"Genrated Marksheet:"<<endl;
-				cout<<"Name"<<setw(15)<<"|Co"<<setw(6)<<"|Del"<<setw(6)<<"|Ds"<<setw(6)<<"|Fds"<<setw(6)<<endl;
+				cout<<"Name"<<setw(13)<<"|Prn"<<setw(6)<<"|Co"<<setw(6)<<"|Del"<<setw(6)<<"|Ds"<<setw(6)<<"|Fds"<<setw(6)<<endl;
 				for(i=0;i<top;i++){
 					genrateMarksheet(s[i]);
 				}
@@ -407,7 +407,7 @@ int main(){
 				cout<<"Enter students PRN: "<<endl;
 				cin>>prn;
 				
-				for(i=prn;i<top;i++){
+				for(i=0;i<top;i++){
 					if(positionStudents(s[i],prn)){
 						index=i;
 					}
@@ -420,7 +420,7 @@ int main(){
 			case 5:
 				cout<<"Enter students PRN: "<<endl;
 				cin>>prn;
-				for(i=prn;i<top;i++){
+				for(i=0;i<top;i++){
 					if(positionStudents(s[i],prn)){
 						index=i;
 					}
