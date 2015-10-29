@@ -7,6 +7,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <typeinfo>
+#include <iomanip> 
 using namespace std;
 union tempHuman{
 	int p;
@@ -15,7 +16,7 @@ union tempHuman{
 	char a[20];
 };
 class Human{
-	private:
+	protected:
 		int prn;
 		char name[20];
 		int year;
@@ -135,9 +136,8 @@ class Human{
 		strcpy(address,"anonymous");
 	}
 	
-	friend void search(int);
 };
-class Student: private Human{
+class Student: public Human{
 	private:
 		int co_marks;
 		int del_marks;
@@ -262,26 +262,113 @@ class Student: private Human{
 			fds_marks=0;
 			pp_marks=0;	
 		}
-};
-void addStudents(int *p, int top){
-	(*p)[top].getStudent();
-}
-void searchStudents(){
 		
+		//Friend Functions
+		friend void searchStudents(Student& s,int prn);
+		friend void genrateMarksheet(Student& s);
+		friend int positionStudents(Student& s,int prn);
+		friend void deleteStudent(Student& s1,Student& s2);
+		
+		//for trying out things
+		friend void fakeData(Student& s1,Student& s2,Student& s3,Student& s4,Student& s5,Student& s6);
+};
+void addStudents(Student& obj, int * top){
+	obj.getStudent();
+	(*top)++;
 }
-void genrateMarksheet(){
-	
+void searchStudents(Student& s,int prn){
+	if(s.prn==prn){
+		cout<<"Details of Student are: "<<endl;
+		s.printStudent();
+	}
 }
-void deleteStudent(){
-	
+void genrateMarksheet(Student& s){
+	cout<<s.name<<setw(15)<<s.co_marks<<setw(6)<<s.del_marks<<setw(6)<<s.ds_marks<<setw(6)<<s.fds_marks<<setw(6)<<endl;
 }
-void modifyStudent(){
-	
+int positionStudents(Student& s,int prn){
+	if(s.prn==prn){
+		return 1;
+	}
+	return 0;
+}
+void deleteStudent(Student& s1,Student& s2){
+	//human
+	s1.prn=s2.prn;
+	strcpy(s1.name,s1.name);
+	s1.year=s2.year;
+	strcpy(s1.address,s1.address);
+	//student
+	s1.co_marks=s2.co_marks;
+	s1.del_marks=s2.del_marks;
+	s1.ds_marks=s2.ds_marks;
+	s1.fds_marks=s2.fds_marks;
+}
+
+//Enterring fake data
+void fakeData(Student& s1,Student& s2,Student& s3,Student& s4,Student& s5,Student& s6){
+	//s1
+	s1.prn=1;
+	strcpy(s1.name,"Nitish");
+	s1.year=3;
+	strcpy(s1.address,"Delhi");
+	s1.co_marks=12;
+	s1.del_marks=2;
+	s1.ds_marks=14;
+	s1.fds_marks=9;
+	//s2
+	s2.prn=2;
+	strcpy(s2.name,"lalu");
+	s2.year=1;
+	strcpy(s2.address,"Bihar");
+	s2.co_marks=0;
+	s2.del_marks=0;
+	s2.ds_marks=0;
+	s2.fds_marks=0;
+	//s3
+	s3.prn=3;
+	strcpy(s3.name,"Modi");
+	s3.year=4;
+	strcpy(s3.address,"Guju");
+	s3.co_marks=20;
+	s3.del_marks=20;
+	s3.ds_marks=20;
+	s3.fds_marks=20;
+	//s4
+	s4.prn=4;
+	strcpy(s4.name,"Jai lalita");
+	s4.year=2;
+	strcpy(s4.address,"kerela");
+	s4.co_marks=15;
+	s4.del_marks=18;
+	s4.ds_marks=4;
+	s4.fds_marks=9;
+	//s5
+	s5.prn=5;
+	strcpy(s5.name,"thakre");
+	s5.year=3;
+	strcpy(s5.address,"Mumbai");
+	s5.co_marks=7;
+	s5.del_marks=11;
+	s5.ds_marks=19;
+	s5.fds_marks=13;
+	//s6
+	s6.prn=6;
+	strcpy(s6.name,"Shila");
+	s6.year=1;
+	strcpy(s6.address,"North");
+	s6.co_marks=0;
+	s6.del_marks=12;
+	s6.ds_marks=8;
+	s6.fds_marks=19;
 }
 int main(){
 	Student s[10];
-	register int i;
-	int top=0, option=0, flag=1;
+	int top=0, option=0, flag=1,prn,index;
+	register int i=0;
+	
+	//adding fake data
+	fakeData(s[0],s[1],s[2],s[3],s[4],s[5]);
+	top=6;
 	do{
 		cout<<"Enter your choise:"<<endl;
 		cout<<"0. Exit"<<endl;
@@ -297,19 +384,49 @@ int main(){
 				flag=0;
 			break;
 			case  1:
-				addStudents(s,&top);
+				addStudents(s[top],&top);
 			break;
 			case  2:
-				searchStudents();
+				cout<<"Enter students PRN: "<<endl;
+				cin>>prn;
+				
+				for(i=0;i<top;i++){
+					searchStudents(s[i],prn);
+					continue;
+				}
+				cout<<"Student Not found, sorry"<<endl;
 			break;
 			case  3:
-				genrateMarksheet();
+				cout<<"Genrated Marksheet:"<<endl;
+				cout<<"Name"<<setw(15)<<"|Co"<<setw(6)<<"|Del"<<setw(6)<<"|Ds"<<setw(6)<<"|Fds"<<setw(6)<<endl;
+				for(i=0;i<top;i++){
+					genrateMarksheet(s[i]);
+				}
 			break;
 			case  4:
-				deleteStudent();
+				cout<<"Enter students PRN: "<<endl;
+				cin>>prn;
+				
+				for(i=prn;i<top;i++){
+					if(positionStudents(s[i],prn)){
+						index=i;
+					}
+				}
+				top--;
+				for(i=index;i<top;i++){
+					deleteStudent(s[i],s[i+1]);
+				}
 			break;
 			case 5:
-				modifyStudent();
+				cout<<"Enter students PRN: "<<endl;
+				cin>>prn;
+				for(i=prn;i<top;i++){
+					if(positionStudents(s[i],prn)){
+						index=i;
+					}
+				}
+				s[index].getStudent();
+				
 			break;
 		}
 		
